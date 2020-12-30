@@ -1,0 +1,135 @@
+package clasesP;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Franco
+ */
+public class modulosPrimos {
+    
+    static int filas = 0 ;
+    
+    static int puntero = 0 ;
+    
+    static Scanner dato = new Scanner(System.in) ;
+    
+    static int[] matriz = new int[filas] ;
+    
+    static int[] matriz2 = new int[filas] ;
+    
+    static int[] primosDiv = new int[99] ;
+    
+    public static void encontrarPrimos( int primo ){
+        
+        System.out.println(" ENTRO A BUSCAR PRIMOS ");
+        
+        boolean verdad = true ;
+        
+        for ( int c = 2 ; c < ( primo + 1) ; c++ ){
+            
+            verdad = true ;
+            
+            for ( int d= 2 ; d < (c/2) ; d++ ){
+            
+                    
+                if ( c % d == 0){
+                    
+                    verdad = false ;
+                    
+                }
+                
+            }
+            
+            if (verdad){
+                
+                filas ++ ;
+                
+                matriz2 = new int[filas] ;
+                
+                for ( int s = 0 ; s < (filas-1) ; s++ ){
+                    
+                    matriz2[s] = matriz[s] ;
+                    
+                }
+                
+                matriz = new int[filas] ;
+                
+                for ( int s = 0 ; s < filas ; s++ ){
+                    
+                    matriz[s] = matriz2[s] ;
+                    
+                }
+                
+                matriz[(filas-1)] = c ;
+                
+            }
+            
+            System.out.println("SIGE TRABAJANDO, VA POR EL NUMERO " + c );
+            
+        } 
+        
+    }
+    
+    public static void mostrarPrimos(){
+        
+        for ( int c = 0 ; c < filas ; c++ ){
+            
+            System.out.print( "  " + matriz[c] + "  ") ;
+            
+            System.out.println();
+            
+        }
+        
+    }
+    
+    public static void buscarPrimos( int primo ){
+        
+        System.out.println(" ESTA COMPARANDO CON LOS PRIMOS ENCONTRADOS ");
+        
+        primosDiv = new int[99] ;
+        
+        puntero = 0 ;
+        
+        for ( int c = 0 ; c < filas ; c++ ){
+            
+            if ( primo % matriz[c] == 0 ){
+                
+                primosDiv[puntero] = matriz[c] ;
+                
+                primo /= matriz[c] ;
+                
+                puntero ++ ;
+                
+                c -- ;
+                
+            }
+            
+            if ( primo == 0 ){
+                
+                System.out.println(" TERMINO ANTES ");
+                
+                return ;
+                
+            }
+        
+        }
+        
+        if( primo != 0 ){
+                
+            primosDiv[puntero] = primo ;
+                
+        }
+        
+    }
+    
+    public static void mostrarResultado(){
+        
+        for ( int c = 0 ; c < puntero ; c++ ){
+            
+            System.out.println( "  " + primosDiv[c] + "  ") ;
+            
+        }
+        
+    }
+}

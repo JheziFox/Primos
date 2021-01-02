@@ -1,6 +1,7 @@
 # Primos
 Ingresa un numero para descomponerlos en los primos que puede ser multiplicado 
 mi nombre es franco
+Programa para ingresar y reducir matrices soy un programador nuevo sin experiencia que esta intentando aprender lo mas rapido que pueda revisar el codigo y cambiar o sugerir lo que te parezca, cualquier opinion ayuda mucho
 package primosapp;
 
 import clasesP.modulosPrimos;
